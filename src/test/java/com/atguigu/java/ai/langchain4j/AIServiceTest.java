@@ -11,10 +11,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class AIServiceTest {
 
     @Autowired
-    private Assistant assistant;
+    private QwenChatModel qwenChatModel;
 
     @Test
     public void testChat() {
+        //创建AIService assistant
+        Assistant assistant = AiServices.create(Assistant.class, qwenChatModel);
         //调用service的接口
         String answer = assistant.chat("肺癌怎么治疗？");
         System.out.println(answer);
