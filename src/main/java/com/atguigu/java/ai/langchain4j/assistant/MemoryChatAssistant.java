@@ -1,0 +1,22 @@
+package com.atguigu.java.ai.langchain4j.assistant;
+
+import dev.langchain4j.service.spring.AiService;
+import dev.langchain4j.service.spring.AiServiceWiringMode;
+
+import static dev.langchain4j.service.spring.AiServiceWiringMode.EXPLICIT;
+
+/**
+ * 智能体
+ */
+
+@AiService(
+        wiringMode = EXPLICIT,
+        chatModel = "qwenChatModel",
+        chatMemory = "chatMemory"
+)
+
+public interface MemoryChatAssistant {
+
+    String chat(String message);
+
+}
