@@ -14,7 +14,7 @@ import static dev.langchain4j.service.spring.AiServiceWiringMode.EXPLICIT;
         )
 
 public interface SeparateChatAssistant {
-    @SystemMessage("你是我的好朋友，请用东北话回答问题。今天是{{current_date}}")//系统消息提示词
+    @SystemMessage(fromResource = "my-prompt-template.txt")//系统消息提示词
     String chat(@MemoryId int memoryId, @UserMessage String userMessage);
 
 }
