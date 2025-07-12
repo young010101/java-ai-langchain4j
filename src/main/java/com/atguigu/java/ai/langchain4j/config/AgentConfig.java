@@ -15,17 +15,11 @@ public class AgentConfig {
     private MongoChatMemoryStore mongoChatMemoryStore;
     @Bean
     ChatMemoryProvider chatMemoryProviderXiaoZhi(){
-        return new ChatMemoryProvider() {
-            @Override
-            public ChatMemory get(Object memoryId){
-                return MessageWindowChatMemory.builder()
-                        .id(memoryId)
-                        .maxMessages(20)
-                        .chatMemoryStore(mongoChatMemoryStore)
-                        .build();
-
-            }
-        };
+        return memoryId -> MessageWindowChatMemory.builder()
+                .id(memoryId)
+                .maxMessages(20)
+                .chatMemoryStore(mongoChatMemoryStore)
+                .build();
     }
 }
 
