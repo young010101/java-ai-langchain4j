@@ -10,6 +10,11 @@ import static dev.langchain4j.service.spring.AiServiceWiringMode.EXPLICIT;
         chatModel = "qwenChatModel"
 )
 public interface Assistant {
+    /**
+     * 聊天
+     * @param userMessage
+     * @return 大模型的输出
+     */
     String chat(String userMessage);
 
 }
